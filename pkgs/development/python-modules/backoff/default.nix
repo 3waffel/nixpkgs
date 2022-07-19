@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, pytestCheckHook, poetry, pytest-asyncio, }:
+{ lib, buildPythonPackage, fetchFromGitHub, pytestCheckHook, poetry, pytest-asyncio, responses }:
 
 buildPythonPackage rec {
   pname = "backoff";
@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ poetry ];
 
-  checkInputs = [ pytestCheckHook pytest-asyncio ];
+  checkInputs = [ pytestCheckHook pytest-asyncio responses ];
 
   meta = with lib; {
     description = "Function decoration for backoff and retry";
