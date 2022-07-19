@@ -2,6 +2,7 @@
 , attrs
 , buildPythonPackage
 , fetchFromGitHub
+, flit-core
 , linkify-it-py
 , mdurl
 , psutil
@@ -25,6 +26,10 @@ buildPythonPackage rec {
     rev = "refs/tags/v${version}";
     sha256 = "sha256-6UATJho3SuIbLktZtFcDrCTWIAh52E+n5adcgl49un0=";
   };
+
+  nativeBuildInputs = [
+    flit-core
+  ];
 
   propagatedBuildInputs = [
     attrs
