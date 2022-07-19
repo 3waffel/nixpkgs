@@ -5,6 +5,7 @@
 , decorator
 , numpy
 , platformdirs
+, typing-extensions
 , pytestCheckHook
 }:
 
@@ -22,6 +23,8 @@ buildPythonPackage rec {
     decorator
     numpy
     platformdirs
+  ] ++ lib.optionals (pythonOlder "3.11") [
+    typing-extensions
   ];
 
   checkInputs = [
