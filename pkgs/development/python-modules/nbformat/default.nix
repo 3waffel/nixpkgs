@@ -1,7 +1,8 @@
 { lib
 , buildPythonPackage
 , fetchPypi
-, pytest
+, fastjsonschema
+, pytestCheckHook
 , glibcLocales
 , ipython_genutils
 , traitlets
@@ -21,8 +22,8 @@ buildPythonPackage rec {
 
   LC_ALL="en_US.utf8";
 
-  checkInputs = [ pytest glibcLocales ];
-  propagatedBuildInputs = [ ipython_genutils traitlets testpath jsonschema jupyter_core ];
+  checkInputs = [ pytestCheckHook glibcLocales ];
+  propagatedBuildInputs = [ ipython_genutils traitlets testpath jsonschema jupyter_core fastjsonschema ];
 
   preCheck = ''
     mkdir tmp
